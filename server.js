@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
+app.get('http://phanikishorep.imad.hasura-app.io/article-one', function (req, res) {
   res.sendFile('Article one requested and will be served here');
 });
 
