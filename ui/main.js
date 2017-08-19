@@ -1,16 +1,24 @@
-console.log('Loaded!');
+var button = document.getElementById('counter');
 
-var element = document.getElementById('main-txt');
-element.innerHTML = "New Value";
-
-// Making the image move
-
-var img = document.getElementById('madi');
-var marginLeft = 0;
-function moveRight () {
-    marginLeft = marginLeft + 1;
-    img.style.marginLeft = marginLeft + 'px';
+button.onClick = function () {
+  var request = new XMLHttpRequest();
+  
+  request.onreadystatechange = function () {
+    if (request.readyState === XMLHttpRequest.DONE)
+    {
+        if(request.status === 200)
+        {
+            var counter = request.responseText;
+            var span = document.getElementById('count');
+            span.innerHTML = counter.toString();
+            
+        }
     }
-img.onclick = function () {
-    var interval = setInterval(moveRight,100);
+      
+  };
+  
+  request.open('GET','http://phanikishorep.imad.hasura-app.io/counter',true);
+  request.send(null);
+  
+    
 };
