@@ -52,13 +52,3 @@ request.send(null);
 
 };
 
-
-    
-    
-    
-    
-    
-    var ul=document.getElementById('nameList');
-    ul.innerHTML = list;
-};
-
